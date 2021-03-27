@@ -1,0 +1,105 @@
+<div class="wrapper">
+  <div class="container" [class.right-panel-active]="isSignupActive">
+    <div class="box box-1">
+      <form
+        [formGroup]="signInForm"
+        #loginForm="ngForm"
+        [class.was-validated]="loginForm.submitted"
+        (ngSubmit)="signInSubmit()"
+      >
+        <h1 class="title">Sign in</h1>
+
+        <div class="row">
+          <div class="mb-3 col-12">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              placeholder="Username"
+              required
+            />
+            <div class="invalid-feedback">Please input a username.</div>
+          </div>
+
+          <div class="mb-3 col-12">
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="Password"
+              required
+            />
+            <div class="invalid-feedback">Please input a password.</div>
+          </div>
+        </div>
+
+        <p class="mt-2 text-danger" *ngIf="wrongPassword">Username or password incorrect.</p>
+
+        <a href="#">Forgot password?</a>
+
+        <button class="btn" type="submit">Signin</button>
+      </form>
+    </div>
+    <div class="box box-2">
+      <form
+        [formGroup]="signUpForm"
+        #registerForm="ngForm"
+        [class.was-validated]="registerForm.submitted"
+        (ngSubmit)="signUpSubmit()"
+      >
+        <h1 class="title">Sign up</h1>
+
+        <div class="row">
+          <div class="mb-3 col-12">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              required
+              formControlName="username"
+            />
+            <div class="invalid-feedback">Please input a username.</div>
+          </div>
+
+          <div class="mb-3 col-12">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              required
+              formControlName="email"
+            />
+            <div class="invalid-feedback">Wrong format email.</div>
+          </div>
+
+          <div class="mb-3 col-12">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+              required
+            />
+            <div class="invalid-feedback">Please input a password.</div>
+          </div>
+        </div>
+
+        <button class="btn">Signup</button>
+      </form>
+    </div>
+
+    <div class="box right-1">
+      <h1>Hello,</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere,
+        cumque.
+      </p>
+      <button class="btn-right" (click)="signUpActive(true)">Signup</button>
+    </div>
+    <div class="box right-2">
+      <h1>Welcome</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque.</p>
+      <button class="btn-right" (click)="signUpActive(false)">Signin</button>
+    </div>
+  </div>
+</div>

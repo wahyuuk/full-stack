@@ -1,0 +1,44 @@
+<!-- Header Content -->
+<div class="content-wrapper">
+  <div class="header-app">
+    <h1>Test <span>K</span></h1>
+    <button class="btn btn-danger" (click)="logout()">
+      <i class="fa fa-sign-out" aria-hidden="true"></i> Signout
+    </button>
+  </div>
+
+  <div class="app-content">
+    <!-- Sidebar Content -->
+    <div class="app-sidebar">
+      <div class="app-menu">
+        <ul class="list-menu">
+          <li class="menu-item" [routerLinkActive]="['active']">
+            <a routerLink="dashboard" class="menu-link">
+              <i class="fa fa-lg fa-dashboard"></i> Dashboard
+            </a>
+          </li>
+          <li class="menu-item" [routerLinkActive]="['active']">
+            <a routerLink="test/employee" class="menu-link">
+              <i class="fas fa-id-card fa-lg"></i> Employee
+            </a>
+          </li>
+          <li class="menu-item" [routerLinkActive]="['active']">
+            <a routerLink="test/company" class="menu-link">
+              <i class="fa fa-building fa-lg"></i> Company
+            </a>
+          </li>
+
+          <li class="menu-item" [routerLinkActive]="['active']">
+            <a routerLink="test/car" class="menu-link">
+              <i class="fa fa-car fa-lg"></i> Car
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

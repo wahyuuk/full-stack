@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="mb-4 col-12">
+    <h1>Dashboard</h1>
+  </div>
+  <div class="mb-4 col-6">
+    <div class="p-4 card">
+      <h3>Employee Gender</h3>
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="employeeGender"
+          [labels]="employeeGenderLabel"
+          [colors]="pieChartColors"
+          [chartType]="pieChartType"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3 col-6">
+    <div class="p-4 card">
+      <h3>Employee Car</h3>
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="employeeCar"
+          [labels]="employeeCarLabel"
+          [colors]="pieChartColors"
+          [chartType]="pieChartType"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3 col-6">
+    <div class="p-4 card">
+      <h3>Employee Asset</h3>
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="employeeAsset"
+          [labels]="employeeAssetLabel"
+          [colors]="pieChartColors"
+          [chartType]="pieChartType"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3 col-6">
+    <div class="p-4 card">
+      <h3>Company Total</h3>
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="countCompany"
+          [labels]="countCompanyLabel"
+          [colors]="pieChartColors"
+          [chartType]="pieChartType"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3 col-6">
+    <div class="p-4 card">
+      <h3>Car Brand Total</h3>
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="countBrand"
+          [labels]="countBrandLabel"
+          [colors]="pieChartColors"
+          [chartType]="pieChartType"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+

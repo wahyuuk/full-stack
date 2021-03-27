@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="card">
+    <div
+      class="flex-row card-header bg-dark-gray d-flex justify-content-between align-items-center"
+    >
+      <span class="float-left"> Car Form </span>
+    </div>
+
+    <div class="card-body">
+      <div class="container">
+        <form
+          [formGroup]="form"
+          #carForm="ngForm"
+          [class.was-validated]="carForm.submitted"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="row">
+            <div class="mb-3 col-12 col-md-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-3 form-group">
+                    <label for="name" class="form-label required">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="name"
+                      name="name"
+                      required
+                    />
+                    <div class="invalid-feedback">Please input name.</div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-3 form-group">
+                    <label for="brand" class="form-label required">Brand</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="brand"
+                      name="brand"
+                      required
+                    />
+                    <div class="invalid-feedback">Please input brand.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3 col-12 col-md-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-3 form-group">
+                    <label for="price" class="form-label required">Price</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      formControlName="price"
+                      name="price"
+                      required
+                    />
+                    <div class="invalid-feedback">Please input price.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3 form-group">
+                <ng-template [ngIf]="editable" [ngIfElse]="editForm">
+                  <button class="me-3 btn btn-primary btn-sm" type="submit">
+                    <i class="fa fa-check"></i>&nbsp;Submit
+                  </button>
+                </ng-template>
+                <ng-template #editForm>
+                  <button class="me-3 btn btn-success btn-sm" type="button" [routerLink]="['edit']">
+                    <i class="fa fa-check"></i>&nbsp;Edit
+                  </button>
+                </ng-template>
+                <button
+                  class="text-white btn btn-sm btn-secondary"
+                  type="button"
+                  (click)="onBack()"
+                >
+                  <i class="fa fa-remove"></i>&nbsp;Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

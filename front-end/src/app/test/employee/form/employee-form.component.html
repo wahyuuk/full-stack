@@ -1,0 +1,193 @@
+<div class="container mb-4">
+  <div class="card">
+    <div
+      class="flex-row card-header bg-dark-gray d-flex justify-content-between align-items-center"
+    >
+      <span class="float-left">Employee Form </span>
+    </div>
+
+    <div class="card-body">
+      <div class="container">
+        <form
+          [formGroup]="form"
+          #employeeForm="ngForm"
+          [class.was-validated]="employeeForm.submitted"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="row">
+            <div class="mb-3 col-12 col-md-6">
+              <div class="row">
+                <div class="mb-3 col-12">
+                  <div class="form-group">
+                    <label for="name" class="form-label required">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="name"
+                      name="name"
+                      required
+                    />
+                    <div class="invalid-feedback">Please input name.</div>
+                  </div>
+                </div>
+
+                <div class="mb-3 col-12">
+                  <div class="form-group">
+                    <label for="gender" class="form-label required">Gender</label>
+                    <div class="flex-row form-group d-flex">
+                      <div class="me-5 form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="gender"
+                          formControlName="gender"
+                          value="Laki-laki"
+                          required
+                        />
+                        <label class="form-check-label" for="gender">
+                          Laki-laki
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="gender"
+                          formControlName="gender"
+                          value="Perempuan"
+                          required
+                        />
+                        <label class="form-check-label" for="gender">
+                          Perempuan
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-2 mb-3 col-12">
+                  <div class="mb-3 form-group">
+                    <label for="place-of-birth" class="form-label required"
+                      >Place of Birth</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="placeOfBirth"
+                      name="place-of-birth"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please input place of birth.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3 col-12">
+                  <div class="mb-3 form-group">
+                    <label for="date-of-birth" class="form-label required"
+                      >Date of Birth</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="dateOfBirth"
+                      name="date-of-birth"
+                      bsDatepicker
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please input date of birth.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3 col-12 col-md-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-3 form-group">
+                    <label for="phone-number" class="form-label required">
+                      Phone number
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="phoneNumber"
+                      name="phone-number"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please input phone number.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-3 form-group">
+                    <label for="phone-number" class="form-label required">
+                      Company
+                    </label>
+                    <ng-select
+                      [items]="company"
+                      (focus)="getCompany()"
+                      bindLabel="name"
+                      formControlName="company"
+                      required
+                    >
+                    </ng-select>
+                    <div class="invalid-feedback">Please input company.</div>
+                  </div>
+                </div>
+
+                <div class="mb-3 col-12">
+                  <div class="mb-3 form-group">
+                    <label for="address" class="form-label required">
+                      Address
+                    </label>
+                    <textarea
+                      type="text"
+                      class="form-control"
+                      formControlName="address"
+                      rows="5"
+                      name="address"
+                      required
+                    ></textarea>
+                    <div class="invalid-feedback">Please input address.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3 form-group">
+                <ng-template [ngIf]="editable" [ngIfElse]="editForm">
+                  <button class="me-3 btn btn-primary btn-sm" type="submit">
+                    <i class="fa fa-check"></i>&nbsp;Submit
+                  </button>
+                </ng-template>
+                <ng-template #editForm>
+                  <button class="me-3 btn btn-success btn-sm" type="button" [routerLink]="['edit']">
+                    <i class="fa fa-check"></i>&nbsp;Edit
+                  </button>
+                </ng-template>
+                <button
+                  class="text-white btn btn-sm btn-secondary"
+                  type="button"
+                  (click)="onBack()"
+                >
+                  <i class="fa fa-remove"></i>&nbsp;Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-employee-car-table *ngIf="id"></app-employee-car-table>

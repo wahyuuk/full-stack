@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card">
+    <div
+      class="flex-row card-header bg-dark-gray d-flex justify-content-between align-items-center"
+    >
+      <span class="float-left">Employee Car Table </span>
+      <div class="float-right">
+        <button class="btn btn-sm btn-success" [routerLink]="'employee-car/add'" *ngIf="employeeFormEditable">
+          <i class="fa fa-plus"></i>&nbsp;New Data
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Brand</th>
+              <th scope="col">Price</th>
+              <th scope="col" *ngIf="employeeFormEditable">#</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let data of data" class="mb-2">
+              <td>{{ data?.car?.name }}</td>
+              <td>{{ data?.car?.brand }}</td>
+              <td>{{ data?.car?.price | currency: 'RP. ' }}</td>
+              <td *ngIf="employeeFormEditable">
+                <button class="btn btn-sm btn-primary" [routerLink]="['employee-car', data?.car?.id]">
+                  <i class="fa fa-eye"></i> 
+                </button>&nbsp;
+                <button
+                  class="btn btn-sm btn-success"
+                  [routerLink]="['employee-car', data?.id, 'edit']"
+                >
+                  <i class="fa fa-pencil-square-o"></i>
+                </button>&nbsp;
+
+                <button class="btn btn-sm btn-danger" (click)="onDelete(data.id)"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
